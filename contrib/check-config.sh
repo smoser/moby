@@ -41,6 +41,8 @@ is_set_as_module() {
 }
 
 color() {
+    # if stdout is not a terminal, then don't do color codes.
+    [ -t 1 ] || return 0
 	codes=
 	if [ "$1" = 'bold' ]; then
 		codes='1'
